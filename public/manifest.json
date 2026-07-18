@@ -1,0 +1,22 @@
+{
+  "name": "Aurora Care",
+  "short_name": "Aurora",
+  "description": "Panel del cuidador para monitoreo de pacientes con Alzheimer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F7FC",
+  "theme_color": "#6E4FE0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

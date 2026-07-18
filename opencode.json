@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "references": {
+    "docs": {
+      "path": "../ObsidianAurora",
+      "description": "Documentación completa del proyecto Aurora: arquitectura, requerimientos (91 RF + 43 RNF), diseño UX-UI, ADRs, trazabilidad y planificación en Jira. Consultar ANTES de implementar cualquier feature."
+    }
+  }
+}

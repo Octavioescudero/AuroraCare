@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ========================================
+   Aurora Care — Design Tokens
+   Fuente de verdad: Design/tokens/tokens.json
+   ======================================== */
+
+:root {
+  /* Violeta — marca y acción */
+  --violet-50: #f4f0ff;
+  --violet-100: #e7deff;
+  --violet-200: #cbbbff;
+  --violet-300: #a884ff;
+  --violet-400: #9773fd;
+  --violet-500: #7c5cee;
+  --violet-600: #6e4fe0;
+  --violet-700: #5638be;
+  --violet-800: #3f2792;
+  --violet-900: #2a1a64;
+
+  /* Lima — acento */
+  --lime-50: #fbfde9;
+  --lime-100: #f5facb;
+  --lime-200: #edf59d;
+  --lime-300: #e5f06f;
+  --lime-400: #d3e24d;
+  --lime-500: #b4c531;
+  --lime-600: #8fa021;
+  --lime-700: #5f6c14;
+  --lime-800: #48520e;
+  --lime-900: #2e3407;
+
+  /* Neutros */
+  --neutral-0: #ffffff;
+  --neutral-50: #f5f7fc;
+  --neutral-100: #e9edf7;
+  --neutral-200: #d2d9ea;
+  --neutral-300: #b8c0d9;
+  --neutral-400: #848db0;
+  --neutral-500: #697298;
+  --neutral-600: #4d5679;
+  --neutral-700: #232b52;
+  --neutral-750: #171e42;
+  --neutral-800: #0f1530;
+  --neutral-850: #0b1026;
+  --neutral-900: #070b1a;
+
+  /* Semánticos — fondos */
+  --green-100: #d6f3e4;
+  --blue-100: #dce9ff;
+  --amber-100: #ffebc5;
+  --red-100: #fad7d7;
+
+  /* Semánticos — íconos (sobre claro) */
+  --green-600: #1f8a57;
+  --blue-600: #2e62d9;
+  --amber-600: #a96a00;
+  --red-600: #c93535;
+
+  /* Semánticos — texto (sobre claro) */
+  --green-700: #136343;
+  --blue-700: #2450ae;
+  --amber-700: #8a5600;
+  --red-700: #a62828;
+
+  /* Background y foreground (tema claro) */
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-750);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Violeta */
+  --color-violet-50: var(--violet-50);
+  --color-violet-100: var(--violet-100);
+  --color-violet-200: var(--violet-200);
+  --color-violet-300: var(--violet-300);
+  --color-violet-400: var(--violet-400);
+  --color-violet-500: var(--violet-500);
+  --color-violet-600: var(--violet-600);
+  --color-violet-700: var(--violet-700);
+  --color-violet-800: var(--violet-800);
+  --color-violet-900: var(--violet-900);
+
+  /* Lima */
+  --color-lime-50: var(--lime-50);
+  --color-lime-100: var(--lime-100);
+  --color-lime-200: var(--lime-200);
+  --color-lime-300: var(--lime-300);
+  --color-lime-400: var(--lime-400);
+  --color-lime-500: var(--lime-500);
+  --color-lime-600: var(--lime-600);
+  --color-lime-700: var(--lime-700);
+  --color-lime-800: var(--lime-800);
+  --color-lime-900: var(--lime-900);
+
+  /* Neutros */
+  --color-neutral-0: var(--neutral-0);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-750: var(--neutral-750);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-850: var(--neutral-850);
+  --color-neutral-900: var(--neutral-900);
+
+  /* Semánticos */
+  --color-green-100: var(--green-100);
+  --color-green-600: var(--green-600);
+  --color-green-700: var(--green-700);
+  --color-blue-100: var(--blue-100);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+  --color-amber-100: var(--amber-100);
+  --color-amber-600: var(--amber-600);
+  --color-amber-700: var(--amber-700);
+  --color-red-100: var(--red-100);
+  --color-red-600: var(--red-600);
+  --color-red-700: var(--red-700);
+
+  /* Tipografía */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-figtree);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Elevación */
+  --shadow-elevation-1: 0 1px 2px 0 rgba(11, 16, 38, 0.05);
+  --shadow-elevation-2: 0 4px 8px -1px rgba(11, 16, 38, 0.08),
+    0 2px 4px -2px rgba(11, 16, 38, 0.05);
+  --shadow-elevation-3: 0 12px 24px -4px rgba(11, 16, 38, 0.12),
+    0 4px 8px -2px rgba(11, 16, 38, 0.06);
+}
+
+/* ========================================
+   Base styles
+   ======================================== */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Números tabulares para datos */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus ring consistente */
+:focus-visible {
+  outline: 2px solid var(--violet-400);
+  outline-offset: 2px;
+}
+
+/* Respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
