@@ -14,17 +14,14 @@ export function AuthForm() {
 
   const [view, setView] = useState<View>("login");
 
-  // Login fields
   const [email, setEmail] = useState("admin@aurora.care");
   const [password, setPassword] = useState("admin");
   const [showPassword, setShowPassword] = useState(false);
 
-  // Register extra fields
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
 
-  // Shared
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -65,7 +62,6 @@ export function AuthForm() {
       return;
     }
 
-    // Login
     setLoading(true);
     const err = await login(email, password);
     if (err) {
@@ -106,7 +102,7 @@ export function AuthForm() {
   if (sessionLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-200 border-t-violet-600" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-200 border-t-violet-600 dark:border-neutral-300 dark:border-t-violet-400" />
       </div>
     );
   }
@@ -114,14 +110,14 @@ export function AuthForm() {
   return (
     <>
       {/* Tabs */}
-      <div className="mb-6 flex rounded-lg bg-neutral-100 p-1">
+      <div className="mb-6 flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-200">
         <button
           type="button"
           onClick={() => switchView("login")}
           className={`flex-1 rounded-md py-2 text-center text-sm font-medium transition-colors ${
             view === "login"
-              ? "bg-white text-neutral-750 shadow-sm"
-              : "text-neutral-500 hover:text-neutral-750"
+              ? "bg-white text-neutral-750 shadow-sm dark:bg-neutral-50 dark:text-neutral-750"
+              : "text-neutral-500 hover:text-neutral-750 dark:text-neutral-400 dark:hover:text-neutral-200"
           }`}
         >
           Iniciar sesión
@@ -131,8 +127,8 @@ export function AuthForm() {
           onClick={() => switchView("register")}
           className={`flex-1 rounded-md py-2 text-center text-sm font-medium transition-colors ${
             view === "register"
-              ? "bg-white text-neutral-750 shadow-sm"
-              : "text-neutral-500 hover:text-neutral-750"
+              ? "bg-white text-neutral-750 shadow-sm dark:bg-neutral-50 dark:text-neutral-750"
+              : "text-neutral-500 hover:text-neutral-750 dark:text-neutral-400 dark:hover:text-neutral-200"
           }`}
         >
           Registrarse
@@ -141,13 +137,13 @@ export function AuthForm() {
 
       {/* Alerts */}
       {error && (
-        <div className="mb-4 flex items-center gap-2 rounded-lg bg-red-100 p-3 text-sm text-red-700">
+        <div className="mb-4 flex items-center gap-2 rounded-lg bg-red-100 p-3 text-sm text-red-700 dark:bg-red-100 dark:text-red-700">
           <AlertCircle className="h-4 w-4 shrink-0" />
           {error}
         </div>
       )}
       {success && (
-        <div className="mb-4 flex items-center gap-2 rounded-lg bg-green-100 p-3 text-sm text-green-700">
+        <div className="mb-4 flex items-center gap-2 rounded-lg bg-green-100 p-3 text-sm text-green-700 dark:bg-green-100 dark:text-green-700">
           <CheckCircle className="h-4 w-4 shrink-0" />
           {success}
         </div>
@@ -155,12 +151,11 @@ export function AuthForm() {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name (register only) */}
         {view === "register" && (
           <div>
             <label
               htmlFor="name"
-              className="mb-1 block text-sm font-medium text-neutral-700"
+              className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-200"
             >
               Nombre completo
             </label>
@@ -171,17 +166,16 @@ export function AuthForm() {
               onChange={(e) => setName(e.target.value)}
               required
               autoComplete="name"
-              className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+              className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100 dark:border-neutral-300 dark:bg-neutral-50 dark:text-neutral-750 dark:placeholder-neutral-500 dark:focus:border-violet-400 dark:focus:ring-violet-100"
               placeholder="María García"
             />
           </div>
         )}
 
-        {/* Email */}
         <div>
           <label
             htmlFor="email"
-            className="mb-1 block text-sm font-medium text-neutral-700"
+            className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-200"
           >
             Email
           </label>
@@ -192,16 +186,15 @@ export function AuthForm() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete="email"
-            className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+            className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100 dark:border-neutral-300 dark:bg-neutral-50 dark:text-neutral-750 dark:placeholder-neutral-500 dark:focus:border-violet-400 dark:focus:ring-violet-100"
             placeholder="tu@email.com"
           />
         </div>
 
-        {/* Password */}
         <div>
           <label
             htmlFor="password"
-            className="mb-1 block text-sm font-medium text-neutral-700"
+            className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-200"
           >
             Contraseña
           </label>
@@ -213,13 +206,13 @@ export function AuthForm() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete={view === "login" ? "current-password" : "new-password"}
-              className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-12 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+              className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-12 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100 dark:border-neutral-300 dark:bg-neutral-50 dark:text-neutral-750 dark:placeholder-neutral-500 dark:focus:border-violet-400 dark:focus:ring-violet-100"
               placeholder={view === "register" ? "Mínimo 6 caracteres" : "••••••••"}
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 transition-colors hover:text-neutral-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               tabIndex={-1}
             >
               {showPassword ? (
@@ -231,12 +224,11 @@ export function AuthForm() {
           </div>
         </div>
 
-        {/* Confirm password (register only) */}
         {view === "register" && (
           <div>
             <label
               htmlFor="confirmPassword"
-              className="mb-1 block text-sm font-medium text-neutral-700"
+              className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-200"
             >
               Confirmar contraseña
             </label>
@@ -248,13 +240,13 @@ export function AuthForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 autoComplete="new-password"
-                className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-12 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+                className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-12 text-sm text-neutral-750 placeholder-neutral-400 transition-colors focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100 dark:border-neutral-300 dark:bg-neutral-50 dark:text-neutral-750 dark:placeholder-neutral-500 dark:focus:border-violet-400 dark:focus:ring-violet-100"
                 placeholder="Repetí tu contraseña"
               />
               <button
                 type="button"
                 onClick={() => setShowConfirm(!showConfirm)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 transition-colors hover:text-neutral-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
                 tabIndex={-1}
               >
                 {showConfirm ? (
@@ -267,24 +259,22 @@ export function AuthForm() {
           </div>
         )}
 
-        {/* Forgot password (login only) */}
         {view === "login" && (
           <div className="text-right">
             <button
               type="button"
               onClick={handleForgotPassword}
-              className="text-sm text-violet-600 transition-colors hover:text-violet-700"
+              className="text-sm text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
             >
               ¿Olvidaste tu contraseña?
             </button>
           </div>
         )}
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 active:bg-violet-800 disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 active:bg-violet-800 disabled:opacity-50 dark:bg-violet-500 dark:hover:bg-violet-600 dark:focus-visible:outline-violet-500 dark:active:bg-violet-700"
         >
           {loading ? (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -296,24 +286,22 @@ export function AuthForm() {
         </button>
       </form>
 
-      {/* Divider */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-neutral-200" />
+          <div className="w-full border-t border-neutral-200 dark:border-neutral-300" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-3 text-neutral-400">
+          <span className="bg-white px-3 text-neutral-400 dark:bg-neutral-100 dark:text-neutral-500">
             o continuá con
           </span>
         </div>
       </div>
 
-      {/* Google */}
       <button
         type="button"
         onClick={handleGoogle}
         disabled={loading}
-        className="flex w-full items-center justify-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-medium text-neutral-700 shadow-sm transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-medium text-neutral-700 shadow-sm transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 disabled:opacity-50 dark:border-neutral-300 dark:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:focus-visible:outline-neutral-400"
       >
         <svg className="h-5 w-5" viewBox="0 0 24 24">
           <path

@@ -68,6 +68,50 @@
   --foreground: var(--neutral-750);
 }
 
+/* ========================================
+   Dark theme — Aurora Night
+   #0B1026 base + Deep Indigo #171E42
+   ======================================== */
+
+.dark {
+  --background: #0b1026;
+  --foreground: #e2e6f0;
+
+  /* Neutros: invertir escala para dark */
+  --neutral-0: #0b1026;
+  --neutral-50: #111733;
+  --neutral-100: #171e42;
+  --neutral-200: #1f2856;
+  --neutral-300: #2a3468;
+  --neutral-400: #5a6390;
+  --neutral-500: #848db0;
+  --neutral-600: #a8afc8;
+  --neutral-700: #cdd2e2;
+  --neutral-750: #e2e6f0;
+  --neutral-800: #eff1f7;
+  --neutral-850: #f8f9fc;
+  --neutral-900: #ffffff;
+
+  /* Violeta: usar violet-500 en dark (más brillante) */
+  --violet-600: #7c5cee;
+
+  /* Semánticos — fondos dark */
+  --green-100: #0d2e1d;
+  --blue-100: #0d1b3a;
+  --amber-100: #2e2208;
+  --red-100: #2e1010;
+
+  /* Semánticos — texto sobre dark */
+  --green-600: #4ade80;
+  --green-700: #86efac;
+  --blue-600: #60a5fa;
+  --blue-700: #93c5fd;
+  --amber-600: #fbbf24;
+  --amber-700: #fcd34d;
+  --red-600: #f87171;
+  --red-700: #fca5a5;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -154,6 +198,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark body {
+  color-scheme: dark;
 }
 
 /* Números tabulares para datos */

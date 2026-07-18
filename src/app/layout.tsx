@@ -43,9 +43,10 @@ export default function RootLayout({
   return (
     <html
       lang="es-AR"
+      suppressHydrationWarning
       className={`${figtree.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-neutral-50 font-sans text-neutral-750">
+      <body className="min-h-full flex flex-col bg-neutral-50 font-sans text-neutral-750 dark:bg-neutral-0 dark:text-neutral-750">
         <Providers>{children}</Providers>
       </body>
     </html>
